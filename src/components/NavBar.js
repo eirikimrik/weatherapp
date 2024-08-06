@@ -1,10 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./NavBar.css";
 
-const NavBar = () => {
+function NavBar() {
     return (
         <header className="header">
-            <nav className="nav container">
+            <nav className="nav_container">
                 <div className={"nav__menu"} id="nav-menu">
                     <ul className="nav__list">
                         <li className="nav__item">
