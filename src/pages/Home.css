@@ -1,0 +1,28 @@
+.wrapper {
+    
+
+}
+
+.content {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.locationContainer {
+    display: grid;
+    justify-content: center;
+    background-color: aquamarine;
+}
+
+.currentWeatherContainer {
+    display: grid;
+    justify-content: center;
+    background-color: cadetblue;
+}
+
+.upcomingWeatherContainer {
+    display: flex;
+    justify-content: center;
+    background-color: aquamarine;
+}

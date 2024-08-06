@@ -7,18 +7,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     height: 80px;
     
 }
 
 .nav__menu {
-    background-color: blueviolet;
+    display: flex;
+    background-color: violet;
    
 }
 
 .nav__item {
-    display: inline;
-    
+    padding: 5px;
     
 }
