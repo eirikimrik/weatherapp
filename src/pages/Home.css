@@ -3,7 +3,7 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: calc(100vh - 80px);
 }
 
 .locationContainer {
@@ -28,8 +28,10 @@
     display: grid;
     justify-content: center;
     background-color: cadetblue;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
+
+
 
 .lastVisitedLocations {
     display: flex;
