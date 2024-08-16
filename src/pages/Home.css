@@ -26,3 +26,13 @@
     justify-content: center;
     background-color: aquamarine;
 }
+
+.lastVisited {
+    display: grid;
+    justify-content: center;
+    background-color: cadetblue;
+}
+
+.lastVisitedContainer {
+    display: flex;
+}

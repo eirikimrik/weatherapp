@@ -8,12 +8,13 @@ function NavBar() {
             <nav className="nav_container">
                 <div className={"nav__menu"} id="nav-menu">
                     <ul className="nav__list">
-                        <a className="nav__item">
-                            <NavLink to="/" className="nav__link" >Home</NavLink>
-                        </a>
-                        <a className="nav__item">
-                            <NavLink to="/about" className="nav__link" >About Us</NavLink>
-                        </a>
+                        <button className="nav__item">
+                            <NavLink to="/" className="nav__link">Home</NavLink>
+                        </button>
+                        <button className="nav__item">
+                            <NavLink to="/about" className="nav__link">About Us</NavLink>
+                        </button>
+                        
                     </ul>
                     
                 </div>
