@@ -1,8 +1,23 @@
 import React from "react";
 import "./Home.css";
+import WeatherStatus from '../WeatherStatus'; 
 
 
 function Home() {
+
+
+    const currentWeather = 'sunny';
+    const upcomingWeather = {
+        monday: 'rainy',
+        tuesday: 'snowy',
+        wednesday: 'cloudy',
+        thursday: 'sunny',
+        friday: 'rainy',
+        saturday: 'snowy',
+        sunday: 'cloudy'
+    };
+
+
     return(
         <div className="wrapping">
             <div className="content" >
@@ -11,44 +26,44 @@ function Home() {
                 </div>
                 <div className="currentWeatherContainer">
                     <p>date/day</p>
-                    <h3>weather logo</h3>
+                    <WeatherStatus weather={currentWeather} />
                     
                     <p>degrees</p>
                 </div>
                 <div className="upcomingWeatherContainer">
                     <div className="mondaycontainer">
                         <p>MON</p>
-                        <h3>logo</h3>
+                        <WeatherStatus weather={upcomingWeather.monday} />
                         <p>degrees</p>
                     </div>
                     <div className="tuesdaycontainer">
                         <p>TUE</p>
-                        <h3>logo</h3>
+                        <WeatherStatus weather={upcomingWeather.tuesday} />
                         <p>degrees</p>
                     </div>
                     <div className="wednesdaycontainer">
                         <p>WED</p>
-                        <h3>logo</h3>
+                        <WeatherStatus weather={upcomingWeather.wednesday} />
                         <p>degrees</p>
                     </div>
                     <div className="thursdaycontainer">
                         <p>THU</p>
-                        <h3>logo</h3>
+                        <WeatherStatus weather={upcomingWeather.thursday} />
                         <p>degrees</p>
                     </div>
                     <div className="fridaycontainer">
                         <p>FRI</p>
-                        <h3>logo</h3>
+                        <WeatherStatus weather={upcomingWeather.friday} />
                         <p>degrees</p>
                     </div>
                     <div className="saturdaycontainer">
                         <p>SAT</p>
-                        <h3>logo</h3>
+                        <WeatherStatus weather={upcomingWeather.saturday} />
                         <p>degrees</p>
                     </div>
                     <div className="sundaycontainer">
                         <p>SUN</p>
-                        <h3>logo</h3>
+                        <WeatherStatus weather={upcomingWeather.sunday} />
                         <p>degrees</p>
                     </div>
                 </div>
