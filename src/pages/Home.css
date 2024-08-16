@@ -1,12 +1,9 @@
-.wrapper {
-    
-
-}
 
 .content {
     display: grid;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 .locationContainer {
@@ -27,12 +24,14 @@
     background-color: aquamarine;
 }
 
-.lastVisited {
+.lastVisitedContainer {
     display: grid;
     justify-content: center;
     background-color: cadetblue;
+    margin-bottom: 100px;
 }
 
-.lastVisitedContainer {
+.lastVisitedLocations {
     display: flex;
+    
 }

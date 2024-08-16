@@ -1,17 +1,18 @@
 import React from "react";
 import "./Home.css";
 
+
 function Home() {
     return(
         <div className="wrapping">
             <div className="content" >
                 <div className="locationContainer">
                     <h1>Ålesund</h1>
-
                 </div>
                 <div className="currentWeatherContainer">
                     <p>date/day</p>
                     <h3>weather logo</h3>
+                    
                     <p>degrees</p>
                 </div>
                 <div className="upcomingWeatherContainer">
@@ -50,12 +51,10 @@ function Home() {
                         <h3>logo</h3>
                         <p>degrees</p>
                     </div>
-
                 </div>
-
-                <div className="lastVisited">
+                <div className="lastVisitedContainer">
                     <h3>Last visited</h3>
-                    <div className="lastVisitedContainer">
+                    <div className="lastVisitedLocations">
                         <div className="location1">
                             <h3>location1</h3>
                             <p>degrees</p>
@@ -77,15 +76,12 @@ function Home() {
                             <p>degrees</p>
                         </div>
                     </div>
-
                 </div>
-               
-                
-
             </div>
-            
         </div>
     );
 }
 
 export default Home;
+
+
