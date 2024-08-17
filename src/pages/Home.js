@@ -30,17 +30,15 @@ function Home() {
     
 
 
-
-    const currentWeather = 'sunny';
     const upcomingWeather = {
-        monday: 'rainy',
-        tuesday: 'snowy',
-        wednesday: 'cloudy',
-        thursday: 'sunny',
-        friday: 'rainy',
-        saturday: 'snowy',
-        sunday: 'cloudy'
-    };
+        monday: 0,
+        tuesday: 0,
+        wednesday: 0,
+        thursday: 0,
+        friday: 0,
+        saturday: 0,
+        sunday: 0
+    }
 
 
     return(
@@ -51,7 +49,8 @@ function Home() {
                 </div>
                 <div className="currentWeatherContainer">
                     <p>{date}</p>
-                    <WeatherStatus weather={currentWeather} />
+
+                    <WeatherStatus weather={weatherType} />
                     <p>{temp}C°</p>
                 </div>
                 <div className="upcomingWeatherContainer">
