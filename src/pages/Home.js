@@ -4,7 +4,7 @@ import "./Home.css";
 
 
 //api from open-meteo
-const URL = 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,weather_code&timezone=Europe%2FBerlin';
+const URL = 'https://api.open-meteo.com/v1/forecast?latitude=62.4723&longitude=6.1549&current=temperature_2m,weather_code&timezone=Europe%2FBerlin';
 
 
 
@@ -13,6 +13,11 @@ function Home() {
     const [temp, setTemp] = useState(0);
     const [date, setDate] = useState('');
     const [weatherType, setWeatherType] = useState('');
+
+    const weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const currentDate = new Date();
+
+    const day = weekDay[currentDate.getDay()];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,8 +31,6 @@ function Home() {
         }
         fetchData();
     }, []);
-
-    
 
 
     const upcomingWeather = {
@@ -48,7 +51,7 @@ function Home() {
                     <h1>Ålesund</h1>
                 </div>
                 <div className="currentWeatherContainer">
-                    <p>{date}</p>
+                    <p>{day}</p>
 
                     <WeatherStatus weather={weatherType} />
                     <p>{temp}C°</p>

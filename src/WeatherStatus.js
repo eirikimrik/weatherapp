@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { WiDaySunny, WiCloudy, WiRain, WiSnow, WiCloud, WiDayCloudy, WiDayFog, WiDaySleet, WiDayStormShowers } from 'react-icons/wi';
+import { WiDaySunny, WiCloudy, WiRain, WiSnow, WiDayCloudy, WiDayFog, WiDaySleet, WiDayStormShowers } from 'react-icons/wi';
 
 
-const weatherCodeURL = 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=weather_code&timezone=Europe%2FBerlin';
+const weatherCodeURL = 'https://api.open-meteo.com/v1/forecast?latitude=62.4723&longitude=6.1549&current=temperature_2m,weather_code&timezone=Europe%2FBerlin';
 
 function WeatherStatus() {
 
@@ -12,7 +12,6 @@ function WeatherStatus() {
         const fetchData = async () => {
             const result = await fetch(weatherCodeURL);
             result.json().then(json => {
-                console.log(json);
                 setWeatherCode(json.current.weather_code);
             })
         }
