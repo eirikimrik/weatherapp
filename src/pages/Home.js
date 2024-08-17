@@ -1,32 +1,33 @@
 import React, { useState, useEffect } from "react";
 import WeatherStatus from '../WeatherStatus'; 
 import "./Home.css";
-import axios from 'axios';
 
 
-const URL = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=d1fbb831c3a4bf57d41ab3c9d6f7dbd1';
+//api from open-meteo
+const URL = 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,weather_code&timezone=Europe%2FBerlin';
 
 
 
 function Home() {
 
-    const [city, setCity] = useState('');
-    const [weatherData, setWeatherData] = useState(null);
-
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(URL);
-            setWeatherData(response.data);
-            console.log(response.data);
-        
-        } catch (error) {
-            console.error(error);
-        }
-    };
+    const [temp, setTemp] = useState(0);
+    const [date, setDate] = useState('');
+    const [weatherType, setWeatherType] = useState('');
 
     useEffect(() => {
+        const fetchData = async () => {
+            const result = await fetch(URL);
+            result.json().then(json => {
+                console.log(json);
+                setTemp(json.current.temperature_2m);
+                setDate(json.current.time);
+                setWeatherType(json.current.weather_code);
+            })
+        }
         fetchData();
     }, []);
+
+    
 
 
 
@@ -49,10 +50,9 @@ function Home() {
                     <h1>Ålesund</h1>
                 </div>
                 <div className="currentWeatherContainer">
-                    <p>date/day</p>
+                    <p>{date}</p>
                     <WeatherStatus weather={currentWeather} />
-                    
-                    <p>degrees</p>
+                    <p>{temp}C°</p>
                 </div>
                 <div className="upcomingWeatherContainer">
                     <div className="mondaycontainer">
