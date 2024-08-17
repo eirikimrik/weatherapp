@@ -15,9 +15,10 @@ function Home() {
     const [weatherType, setWeatherType] = useState('');
 
     const weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const currentDate = new Date();
+    const currentTime = new Date();
 
-    const day = weekDay[currentDate.getDay()];
+    const day = weekDay[currentTime.getDay()];
+    const hour = currentTime.getHours() + ':' + currentTime.getMinutes();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -51,7 +52,7 @@ function Home() {
                     <h1>Ålesund</h1>
                 </div>
                 <div className="currentWeatherContainer">
-                    <p>{day}</p>
+                    <p>{day} {hour}</p>
 
                     <WeatherStatus weather={weatherType} />
                     <p>{temp}C°</p>
