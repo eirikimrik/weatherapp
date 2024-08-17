@@ -1,9 +1,25 @@
-import React from "react";
-import "./Home.css";
+import React, { useState, useEffect } from "react";
 import WeatherStatus from '../WeatherStatus'; 
+import "./Home.css";
+
+
+const URL = '';
+
 
 
 function Home() {
+
+    const [temp, setTemp] = useState(0);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await fetch(URL)
+            result.json().then(json => {
+                setTemp(json.current.temp_f)
+            })
+        }
+        fetchData();
+    }, [])
 
 
     const currentWeather = 'sunny';
