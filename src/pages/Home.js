@@ -11,12 +11,14 @@ function Home() {
     const [temp, setTemp] = useState(0);
     const [weatherType, setWeatherType] = useState('');
     const [upComingWeatherCodes, setUpComingWeatherCodes] = useState([]);
+    const [upComingMaxTemp, setUpComingMaxTemp] = useState([]);
     
     const weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const currentTime = new Date();
 
     const day = weekDay[currentTime.getDay()];
     const hour = currentTime.getHours() + ':' + currentTime.getMinutes();
+
 
 
     useEffect(() => {
@@ -27,7 +29,7 @@ function Home() {
                 setTemp(json.current.temperature_2m);
                 setWeatherType(json.current.weather_code);
                 setUpComingWeatherCodes(json.daily.weather_code.slice(0, 7));
-                
+                setUpComingMaxTemp(json.daily.temperature_2m_max.slice(0, 7));
             })
         }
         fetchData();
@@ -50,7 +52,7 @@ function Home() {
                         <div key={index} className={`${weekDay[(currentTime.getDay() + index) % 7].toLowerCase()}container`}>
                             <p>{weekDay[(currentTime.getDay() + index) % 7].toUpperCase().slice(0, 3)}</p>
                             <UpcomingWeather weather={code} />
-                            <p>degrees</p>
+                            <p>{upComingMaxTemp[index]}C°</p>
                         </div>
                     ))}
                 </div>
