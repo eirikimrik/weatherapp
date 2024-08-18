@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 import WeatherStatus from '../WeatherStatus'; 
 import "./Home.css";
+import UpcomingWeather from "../UpcomingWeather";
 
 
 //api from open-meteo
-const URL = 'https://api.open-meteo.com/v1/forecast?latitude=62.4723&longitude=6.1549&current=temperature_2m,weather_code&timezone=Europe%2FBerlin';
-
-
-
+const URL = 'https://api.open-meteo.com/v1/forecast?latitude=62.4723&longitude=6.1549&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Europe%2FBerlin';
 function Home() {
 
     const [temp, setTemp] = useState(0);
-    const [date, setDate] = useState('');
     const [weatherType, setWeatherType] = useState('');
-
+    const [upComingWeatherCodes, setUpComingWeatherCodes] = useState([]);
+    
     const weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const currentTime = new Date();
 
     const day = weekDay[currentTime.getDay()];
     const hour = currentTime.getHours() + ':' + currentTime.getMinutes();
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,23 +25,13 @@ function Home() {
             result.json().then(json => {
                 console.log(json);
                 setTemp(json.current.temperature_2m);
-                setDate(json.current.time);
                 setWeatherType(json.current.weather_code);
+                setUpComingWeatherCodes(json.daily.weather_code.slice(0, 7));
+                
             })
         }
         fetchData();
     }, []);
-
-
-    const upcomingWeather = {
-        monday: 0,
-        tuesday: 0,
-        wednesday: 0,
-        thursday: 0,
-        friday: 0,
-        saturday: 0,
-        sunday: 0
-    }
 
 
     return(
@@ -53,46 +42,17 @@ function Home() {
                 </div>
                 <div className="currentWeatherContainer">
                     <p>{day} {hour}</p>
-
                     <WeatherStatus weather={weatherType} />
                     <p>{temp}C°</p>
                 </div>
                 <div className="upcomingWeatherContainer">
-                    <div className="mondaycontainer">
-                        <p>MON</p>
-                        <WeatherStatus weather={upcomingWeather.monday} />
-                        <p>degrees</p>
-                    </div>
-                    <div className="tuesdaycontainer">
-                        <p>TUE</p>
-                        <WeatherStatus weather={upcomingWeather.tuesday} />
-                        <p>degrees</p>
-                    </div>
-                    <div className="wednesdaycontainer">
-                        <p>WED</p>
-                        <WeatherStatus weather={upcomingWeather.wednesday} />
-                        <p>degrees</p>
-                    </div>
-                    <div className="thursdaycontainer">
-                        <p>THU</p>
-                        <WeatherStatus weather={upcomingWeather.thursday} />
-                        <p>degrees</p>
-                    </div>
-                    <div className="fridaycontainer">
-                        <p>FRI</p>
-                        <WeatherStatus weather={upcomingWeather.friday} />
-                        <p>degrees</p>
-                    </div>
-                    <div className="saturdaycontainer">
-                        <p>SAT</p>
-                        <WeatherStatus weather={upcomingWeather.saturday} />
-                        <p>degrees</p>
-                    </div>
-                    <div className="sundaycontainer">
-                        <p>SUN</p>
-                        <WeatherStatus weather={upcomingWeather.sunday} />
-                        <p>degrees</p>
-                    </div>
+                {upComingWeatherCodes.map((code, index) => (
+                        <div key={index} className={`${weekDay[(currentTime.getDay() + index) % 7].toLowerCase()}container`}>
+                            <p>{weekDay[(currentTime.getDay() + index) % 7].toUpperCase().slice(0, 3)}</p>
+                            <UpcomingWeather weather={code} />
+                            <p>degrees</p>
+                        </div>
+                    ))}
                 </div>
                 <div className="lastVisitedContainer">
                     <h3>Last visited</h3>
@@ -125,5 +85,3 @@ function Home() {
 }
 
 export default Home;
-
-
