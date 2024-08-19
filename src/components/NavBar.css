@@ -1,6 +1,4 @@
 
-
-
 .nav_container {
     background-color: aqua;
     display: flex;
@@ -11,12 +9,16 @@
 
 .nav__list {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 20px;
-    list-style-type: none;
+    list-style: none;
+    padding: 0px;
+
 }
 
 .nav__link {
+    
     color: black;
     font-size: 24px;
 }
