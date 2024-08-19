@@ -5,7 +5,6 @@ function Footer() {
   return (
     <footer>
       <div className="container">
-
         <a href="/about">
           <p>About Us</p>
         </a>

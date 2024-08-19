@@ -51,7 +51,7 @@ function Home() {
                         <div key={index} className={`${weekDay[(currentTime.getDay() + index) % 7].toLowerCase()}container`}>
                             <p>{weekDay[(currentTime.getDay() + index) % 7].toUpperCase().slice(0, 3)}</p>
                             <WeatherStatus weather={code} iconSize={64}/>
-                            <p>{upComingMaxTemp[index]}C°</p>
+                            <p>{upComingMaxTemp[index]}°</p>
                         </div>
                     ))}
                 </div>
