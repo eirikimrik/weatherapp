@@ -2,8 +2,7 @@ import React from 'react';
 import { WiDaySunny, WiRain, WiSnow, WiDayCloudy, WiDayFog, WiDaySleet, WiDayStormShowers } from 'react-icons/wi';
 
 function WeatherStatus( {weather, iconSize} ) {
-
-
+    
     let IconComponent;
 
     switch (weather) {

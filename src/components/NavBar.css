@@ -1,4 +1,6 @@
 
+
+
 .nav_container {
     background-color: aqua;
     display: flex;
@@ -7,13 +9,14 @@
     
 }
 
-.nav__menu {
+.nav__list {
     display: flex;
-    background-color: violet;
-   
+    align-items: center;
+    gap: 20px;
+    list-style-type: none;
 }
 
-.nav__item {
-    padding: 5px;
-    
+.nav__link {
+    color: black;
+    font-size: 24px;
 }

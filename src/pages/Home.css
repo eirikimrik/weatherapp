@@ -1,28 +1,31 @@
 
 .content {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 80px);
 }
 
-.locationContainer {
-    display: grid;
-    justify-content: center;
-    background-color: aquamarine;
-}
-
 .currentWeatherContainer {
     display: grid;
     justify-content: center;
-    background-color: cadetblue;
-    height: 450px;
+    align-content: center;
+    text-align: center;
+    margin-bottom: 75px;
 }
+
+.currentWeatherContainer p {
+    font-size: 24px;
+}
+
+
 
 .upcomingWeatherContainer {
     display: flex;
     justify-content: center;
-    background-color: aquamarine;
+    
+    text-align: center;
 }
 
 

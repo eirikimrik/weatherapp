@@ -39,13 +39,12 @@ function Home() {
     return(
         <div className="wrapping">
             <div className="content" >
-                <div className="locationContainer">
-                    <h1>Ålesund</h1>
-                </div>
                 <div className="currentWeatherContainer">
                     <p>{day} {hour}</p>
-                    <WeatherStatus weather={weatherType} iconSize={124}/>
-                    <p>{temp}C°</p>
+                    <div className="weatherIcon">
+                        <WeatherStatus weather={weatherType} iconSize={186} />
+                    </div>
+                    <p>{temp}°</p>
                 </div>
                 <div className="upcomingWeatherContainer">
                 {upComingWeatherCodes.map((code, index) => (
