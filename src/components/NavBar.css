@@ -1,6 +1,6 @@
 
 .nav_container {
-    background-color: aqua;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,4 +21,5 @@
     
     color: black;
     font-size: 24px;
+    ;
 }
