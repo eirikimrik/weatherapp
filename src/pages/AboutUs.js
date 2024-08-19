@@ -17,8 +17,8 @@ export const AboutUs = () => {
       </p>
 
       <p>
-        If you want to support my work, feel free to buy me a <Link href="https://buymeacoffee.com/eirikimrik"> coffee</Link>
-        
+        If you want to support my work, feel free to buy me a{" "}
+        <Link href="https://buymeacoffee.com/eirikimrik"> coffee</Link>
       </p>
 
       <p>Thank you for visiting Ålesund Weather!</p>
