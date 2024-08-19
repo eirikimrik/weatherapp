@@ -16,19 +16,13 @@
     display: grid;
     justify-content: center;
     background-color: cadetblue;
+    height: 450px;
 }
 
 .upcomingWeatherContainer {
     display: flex;
     justify-content: center;
     background-color: aquamarine;
-}
-
-.lastVisitedContainer {
-    display: grid;
-    justify-content: center;
-    background-color: cadetblue;
-    margin-bottom: 70px;
 }
 
 

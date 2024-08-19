@@ -1,27 +1,12 @@
-
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { WiDaySunny, WiRain, WiSnow, WiDayCloudy, WiDayFog, WiDaySleet, WiDayStormShowers } from 'react-icons/wi';
 
+function WeatherStatus( {weather, iconSize} ) {
 
-const weatherCodeURL = 'https://api.open-meteo.com/v1/forecast?latitude=62.4723&longitude=6.1549&current=temperature_2m,weather_code&timezone=Europe%2FBerlin';
-
-function WeatherStatus() {
-
-    const [weatherCode, setWeatherCode] = useState('');
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const result = await fetch(weatherCodeURL);
-            result.json().then(json => {
-                setWeatherCode(json.current.weather_code);
-            })
-        }
-        fetchData();
-    }, []);
 
     let IconComponent;
 
-    switch (weatherCode) {
+    switch (weather) {
         case 0:
             IconComponent = WiDaySunny;
             break;
@@ -59,7 +44,7 @@ function WeatherStatus() {
     }
     
 
-    return <IconComponent size={84} />;
+    return <IconComponent size={iconSize} />;
 
 }
 

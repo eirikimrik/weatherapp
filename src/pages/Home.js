@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import WeatherStatus from '../WeatherStatus'; 
 import "./Home.css";
-import UpcomingWeather from "../UpcomingWeather";
 
 
 //api from open-meteo
 const URL = 'https://api.open-meteo.com/v1/forecast?latitude=62.4723&longitude=6.1549&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Europe%2FBerlin';
+
 function Home() {
 
     const [temp, setTemp] = useState(0);
@@ -44,43 +44,19 @@ function Home() {
                 </div>
                 <div className="currentWeatherContainer">
                     <p>{day} {hour}</p>
-                    <WeatherStatus weather={weatherType} />
+                    <WeatherStatus weather={weatherType} iconSize={124}/>
                     <p>{temp}C°</p>
                 </div>
                 <div className="upcomingWeatherContainer">
                 {upComingWeatherCodes.map((code, index) => (
                         <div key={index} className={`${weekDay[(currentTime.getDay() + index) % 7].toLowerCase()}container`}>
                             <p>{weekDay[(currentTime.getDay() + index) % 7].toUpperCase().slice(0, 3)}</p>
-                            <UpcomingWeather weather={code} />
+                            <WeatherStatus weather={code} iconSize={64}/>
                             <p>{upComingMaxTemp[index]}C°</p>
                         </div>
                     ))}
                 </div>
-                <div className="lastVisitedContainer">
-                    <h3>Last visited</h3>
-                    <div className="lastVisitedLocations">
-                        <div className="location1">
-                            <h3>location1</h3>
-                            <p>degrees</p>
-                        </div>
-                        <div className="location2">
-                            <h3>location2</h3>
-                            <p>degrees</p>
-                        </div>
-                        <div className="location3">
-                            <h3>location3</h3>
-                            <p>degrees</p>
-                        </div>
-                        <div className="location4">
-                            <h3>location4</h3>
-                            <p>degrees</p>
-                        </div>
-                        <div className="location5">
-                            <h3>location5</h3>
-                            <p>degrees</p>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     );
