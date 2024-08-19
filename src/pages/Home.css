@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 68px);
 }
 
 .currentWeatherContainer {
@@ -17,6 +17,10 @@
 
 .currentWeatherContainer p {
     font-size: 24px;
+}
+
+.ålesundcontainer p{
+    color: white;
 }
 
 
